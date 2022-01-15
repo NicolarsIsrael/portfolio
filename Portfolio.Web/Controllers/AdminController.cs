@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Web.Core;
 using Portfolio.Web.Data;
 using System;
@@ -49,6 +50,28 @@ namespace Portfolio.Web.Controllers
             return RedirectToAction(nameof(Projects));
         }
 
+        public IActionResult EditProject(int id)
+        {
+            var project = _dbContext.Project.Find(id);
+            return View(project);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProject(Project model)
+        {
+            var project = _dbContext.Project.Find(model.Id);
+            project.Title = model.Title;
+            project.Description = model.Description;
+            project.Participation = model.Participation;
+            project.IsDeleted = model.IsDeleted;
+            project.HomePage = model.HomePage;
+            project.LiveDemoUrl = model.LiveDemoUrl;
+            project.CodeUrl = model.CodeUrl;
+
+            _dbContext.Entry(project).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Projects));
+        }
         
     }
 }
