@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Portfolio.Web.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,7 @@ namespace Portfolio.Web.Data
             : base(options)
         {
         }
+
+        public DbSet<Project> Project { get; set; }
     }
 }

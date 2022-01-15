@@ -1,0 +1,61 @@
+﻿@model Portfolio.Web.Core.Project
+
+@{
+    ViewData["Title"] = "Project";
+}
+
+<h1>Project</h1>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Projects">Back to List</a>
+</div>
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Participation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Participation)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HomePage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HomePage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LiveDemoUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LiveDemoUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CodeUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CodeUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+        <div>
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                @Html.Raw(Model.Description)
+            }
+        </div>
+    </dl>
+</div>
+

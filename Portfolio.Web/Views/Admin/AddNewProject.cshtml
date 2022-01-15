@@ -1,0 +1,77 @@
+﻿@model Portfolio.Web.Core.Project
+@using Portfolio.Web.Core
+
+@{
+    ViewData["Title"] = "Add New Project";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<h3>Add New Project</h3>
+
+<hr />
+<div class="">
+    <div class="">
+        <form asp-action="AddNewProject">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Participation" class="control-label"></label>
+                    <select asp-for="Participation" class="form-control" asp-items ="Html.GetEnumSelectList<ParticipationType>()"></select>
+                    <span asp-validation-for="Participation" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label asp-for="HomePage" class="control-label"></label>
+                    <input asp-for="HomePage" class="form-control" />
+                    <span asp-validation-for="HomePage" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="LiveDemoUrl" class="control-label"></label>
+                    <input asp-for="LiveDemoUrl" class="form-control" />
+                    <span asp-validation-for="LiveDemoUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="CodeUrl" class="control-label"></label>
+                    <input asp-for="CodeUrl" class="form-control" />
+                    <span asp-validation-for="CodeUrl" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea id="Description" asp-for="Description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/summernote.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Initialize Editor
+            $('#Description').summernote({
+                height: 300, // set editor height
+                minHeight: null, // set minimum height of editor
+                maxHeight: null, // set maximum height of editor
+                focus: true // set focus to editable area after initializing summernote
+            });
+        });
+    </script>
+}
