@@ -15,5 +15,6 @@ namespace Portfolio.Web.Data
         }
 
         public DbSet<Project> Project { get; set; }
+        public DbSet<Certificate> Certificate { get; set; }
     }
 }

@@ -73,5 +73,50 @@ namespace Portfolio.Web.Controllers
             return RedirectToAction(nameof(Projects));
         }
         
+        public IActionResult Certificates()
+        {
+            var certificates = _dbContext.Certificate;
+            return View(certificates);
+        }
+
+        public IActionResult Certificate(int id)
+        {
+            var certificate = _dbContext.Certificate.Find(id);
+            return View(certificate);
+        }
+
+        public IActionResult AddCertificate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddCertificate(Certificate model)
+        {
+            _dbContext.Certificate.Add(model);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Certificates));
+        }
+
+        public IActionResult EditCertificate(int id)
+        {
+            var certificate = _dbContext.Certificate.Find(id);
+            return View(certificate);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditCertificate(Certificate model)
+        {
+            var certificate = _dbContext.Certificate.Find(model.Id);
+            certificate.Title = model.Title;
+            certificate.Organization = model.Organization;
+            certificate.Url = model.Url;
+            certificate.Descritption = model.Descritption;
+            certificate.DateAwarded = model.DateAwarded;
+
+            _dbContext.Entry(certificate).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Certificates));
+        }
     }
 }
