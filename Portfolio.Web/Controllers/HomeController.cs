@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Portfolio.Web.Core;
+using Portfolio.Web.Data;
 using Portfolio.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -12,15 +14,19 @@ namespace Portfolio.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _dbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _dbContext = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = new IndexModel();
+            model.Projects = _dbContext.Project;
+            return View(model);
         }
 
         public IActionResult Privacy()
