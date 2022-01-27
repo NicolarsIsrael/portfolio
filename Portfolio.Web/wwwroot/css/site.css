@@ -86,7 +86,7 @@ body {
 }
 
 .project-homepage-img{
-    height: 250px;
+    height: 350px;
     width: 100%
 }
 
@@ -103,10 +103,11 @@ body {
     padding-left: 15px;
     text-align: center;
     width: fit-content;
-    margin: 0 5px;
+    margin: 5px 5px 5px 0;
     background: #1c8a48;
     color: white;
     margin-bottom: 10px;
+    box-shadow: 1px 1px 4px 1px #33333366;
 }
 
 .btn-custom-primary,
