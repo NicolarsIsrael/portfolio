@@ -25,7 +25,7 @@ namespace Portfolio.Web.Controllers
         public IActionResult Index()
         {
             var model = new IndexModel();
-            model.Projects = _dbContext.Project;
+            model.Projects = _dbContext.Project.OrderBy(p=>p.Rank);
             return View(model);
         }
 

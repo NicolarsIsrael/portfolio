@@ -15,6 +15,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
+            <th>Rank</th>
             <th class="text-right"></th>
         </tr>
     </thead>
@@ -23,6 +24,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @item.Rank
             </td>
             <td class="text-right">
                 <a asp-action="EditProject" asp-route-id="@item.Id">Edit</a> |

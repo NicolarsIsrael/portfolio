@@ -67,6 +67,7 @@ namespace Portfolio.Web.Controllers
             project.HomePage = model.HomePage;
             project.LiveDemoUrl = model.LiveDemoUrl;
             project.CodeUrl = model.CodeUrl;
+            project.Rank = model.Rank;
 
             _dbContext.Entry(project).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
