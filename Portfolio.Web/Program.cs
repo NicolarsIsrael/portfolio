@@ -25,9 +25,9 @@ namespace Portfolio.Web
 
                 try
                 {
-                    var context = services.GetRequiredService<ApplicationDbContext>();
-                    context.Database.Migrate();
-                    await DatabaseSeeder.Initialize(services);
+                    //var context = services.GetRequiredService<ApplicationDbContext>();
+                    //context.Database.Migrate();
+                    ////await DatabaseSeeder.Initialize(services);
                 }
                 catch (Exception ex)
                 {

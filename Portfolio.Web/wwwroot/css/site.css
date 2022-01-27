@@ -115,8 +115,6 @@ body {
     background: #bd5d38;
     color: white;
     border: none;
-    min-width: 100px;
-    font-weight: bold;
 }
 
 .btn-custom-secondary,
@@ -125,8 +123,14 @@ body {
     background: #163da8;
     color: white;
     border: none;
-    min-width: 100px;
-    font-weight: bold;
+}
+
+.project-description{
+    text-align:justify;
+}
+
+.project-technologies-used{
+    font-weight:600;
 }
 
 font {

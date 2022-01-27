@@ -27,7 +27,7 @@ namespace Portfolio.Web
                     {
                         await _roleManager.CreateAsync(new IdentityRole(AppConstant.AdminRole));
                         var user = new IdentityUser { UserName = "bakareisrael@gmail.com", Email = "bakareisrael@gmail.com" };
-                        var result = await _userManager.CreateAsync(user, "Abc123*");
+                        var result = await _userManager.CreateAsync(user, "oluwaPelumi1*BOY*");
                         if (!result.Succeeded)
                             throw new Exception();
                         await _userManager.AddToRoleAsync(user, AppConstant.AdminRole);

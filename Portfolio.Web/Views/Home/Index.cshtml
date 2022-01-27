@@ -2,6 +2,7 @@
 @model Portfolio.Web.Core.IndexModel
 @{
     ViewData["Title"] = "Home";
+    int projectCounts = 0;
 }
 
 <!-- About-->
@@ -27,47 +28,7 @@
 </section>
 
 <hr class="m-0" />
-<section class="resume-section" id="projects">
-    <div class="resume-section-content">
-        <h2 class="mb-5">Projects</h2>
-        @foreach (var project in Model.Projects)
-        {
-            <div class="my-5">
-                <h3 class="mb-0">@project.Title</h3>
-                <div class="row">
-                    <div class="col-md-8">
-                        <img src="@project.HomePage" class=" project-homepage-img" />
-                    </div>
-                    <div class="col-md-4">
-                        <p style="font-family: var(--bs-body-font-family);">
-                            @if (!string.IsNullOrEmpty(project.Description))
-                            {
-                                @Html.Raw(project.Description)
-                            }
-                        </p>
-                    </div>
-                </div>
-                <div class="mt-3">
-                    <div class="participation">
-                        @Html.DisplayFor(p => project.Participation)
-                    </div>
-                    <span>
-                        @if (!string.IsNullOrEmpty(project.LiveDemoUrl))
-                        {
-                            <a target="_blank" href="@Url.Content(project.LiveDemoUrl)" class="btn btn-primary btn-custom-primary">Live Preview</a>
-                        }
-                    </span>
-                    <span>
-                        @if (string.IsNullOrEmpty(project.CodeUrl))
-                        {
-                            <a target="_blank" href="@Url.Content(project.CodeUrl)" class="btn btn-primary btn-custom-secondary">Code</a>
-                        }
-                    </span>
-                </div>
-            </div>
-        }
-    </div>
-</section>
+<partial name="_Projects" />
 
 
 <hr class="m-0" />
