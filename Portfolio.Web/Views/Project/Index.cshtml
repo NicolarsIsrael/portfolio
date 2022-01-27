@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Portfolio.Web.Core.Project>
+@{
+    ViewData["Title"] = "Projects";
+}
+<div class="mx-3">
+    <div class="centralized">
+        <h4 class="text-uppercase mb-0">Projects</h4>
+        <hr class="mt-0" />
+        @{
+            foreach (var project in Model)
+            {
+                <div class="card">
+                    <div class="card-body box-shadow">
+                        <div class="project-title">@project.Title</div>
+                        <img class="project-homepage-img" src="@project.HomePage"/>
+                        <div class="mt-2">
+                            @if (!string.IsNullOrEmpty(project.Description))
+                            {
+                                @Html.Raw(project.Description)
+                            }
+                        </div>
+                        <div style="font-size: 15px">
+                            @Html.DisplayFor(p=>project.Participation)
+                        </div>
+                        <div>
+                            <a>
+                                Live demo
+                            </a>
+                            |
+                            <a>
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<style>
+   
+</style>

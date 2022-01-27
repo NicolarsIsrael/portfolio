@@ -69,3 +69,42 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.project-title {
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.centralized {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.box-shadow {
+    box-shadow: 0px 3px 3px 1px #7575758f;
+}
+
+.project-homepage-img{
+    height: 500px;
+    width: 100%
+}
+
+.m-container{
+    margin-top: 120px;
+    padding-bottom:200px;
+}
+
+@media screen and (max-width: 400px) {
+    .centralized {
+        max-width: 90%;
+    }
+
+    .project-homepage-img {
+        height: 250px;
+    }
+
+    .m-container{
+        margin-top: 80px;
+    }
+}

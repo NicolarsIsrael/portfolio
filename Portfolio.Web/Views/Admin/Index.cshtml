@@ -2,13 +2,14 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div>
+    <h1>Index</h1>
 
-<h1>Index</h1>
+    <h5>
+        <a asp-controller="admin" asp-action="projects">View projects</a>
+    </h5>
 
-<h5>
-    <a asp-controller="admin" asp-action="projects">View projects</a>
-</h5>
-
-<h5>
-    <a asp-controller="admin" asp-action="certificates">View certificates</a>
-</h5>
+    <h5>
+        <a asp-controller="admin" asp-action="certificates">View certificates</a>
+    </h5>
+</div>

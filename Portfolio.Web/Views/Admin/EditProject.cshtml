@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Edit Project";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -41,6 +42,11 @@
                     <label asp-for="CodeUrl" class="control-label"></label>
                     <input asp-for="CodeUrl" class="form-control" />
                     <span asp-validation-for="CodeUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Rank" class="control-label"></label>
+                    <input asp-for="Rank" class="form-control" />
+                    <span asp-validation-for="Rank" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group">
